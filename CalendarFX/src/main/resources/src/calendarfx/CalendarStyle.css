@@ -1,0 +1,19 @@
+.root
+{
+    -fx-background-color: #212F3D;
+}
+
+.titlePane
+{
+    -fx-background-color: #17202A;
+}
+
+.pane
+{
+    -fx-border-color: #000;
+}
+
+.addButton
+{
+    -fx-background-color: #1C2833;
+}
