@@ -51,7 +51,7 @@ public class CalendarApplication extends Application
         // Methode init pour EventList en parametre dans Init(...)
 
 
-        Image Image = new Image("C:\\Users\\gogol\\OneDrive\\Documents\\Java\\CalendarFX\\src\\main\\resources\\src\\calendarfx\\IconCalendar.png");
+        Image Image = new Image("C:\\Users\\gogol\\OneDrive\\Documents\\Java\\CalandarFX\\CalendarFX\\src\\main\\resources\\src\\calendarfx\\IconCalendar.png");
         primaryStage.getIcons().add(Image);
 
         // Time
