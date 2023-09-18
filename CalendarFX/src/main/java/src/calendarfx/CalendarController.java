@@ -57,6 +57,14 @@ public class CalendarController
 
         // Ferme la fenêtre
         CloseButton.setOnMouseClicked(mouseEvent -> {
+            try
+            {
+                this.CalendarApplication.AddXMLEvents(this.CalendarApplication.GetEventList().GetEventActivities());
+            }
+            catch (IOException e)
+            {
+                throw new RuntimeException(e);
+            }
             primaryStage.close();
         });
 

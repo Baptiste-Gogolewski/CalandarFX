@@ -98,7 +98,7 @@ public class EventController
         }
         else if (InputValid())
         {
-            Event Event = new Event(EventNameTextField.getText(), YearTextField.getText(), MonthTextField.getText(), DayTextField.getText());
+            Event Event = new Event(EventNameTextField.getText(), PlaceTextField.getText(), TimeTextField.getText(), YearTextField.getText(), MonthTextField.getText(), DayTextField.getText());
 
             CalendarApplication.AddEvent(Event);
 
@@ -108,7 +108,7 @@ public class EventController
         }
         else if (InputValid())
         {
-            Event Event = new Event(EventNameTextField.getText(), PlaceTextField.getText(), TimeTextField.getText(), YearTextField.getText(), MonthTextField.getText(), DayTextField.getText());
+            Event Event = new Event(EventNameTextField.getText(), YearTextField.getText(), MonthTextField.getText(), DayTextField.getText());
 
             CalendarApplication.AddEvent(Event);
 
