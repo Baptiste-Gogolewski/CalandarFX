@@ -17,6 +17,11 @@ public class EventList
         return this.EventActivities;
     }
 
+    public void SetEventActivities(List<Event> eventList)
+    {
+        this.EventActivities = eventList;
+    }
+
     public void AddEvent(Event event)
     {
         EventActivities.add(event);

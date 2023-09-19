@@ -14,10 +14,12 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import com.thoughtworks.xstream.XStream;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -34,8 +36,11 @@ public class CalendarApplication extends Application
 
     static XStream Xstream = new XStream(new DomDriver());
 
-    // Nom du fichier XML
+    // File name
     private static String FileName = "ListPersons.xml";
+
+    // XML path file
+    private String XMLFilePath = "C:\\Users\\gogol\\OneDrive\\Documents\\Java\\CalandarFX\\CalendarFX\\ListPersons.xml";
 
     //EventController eventController;
 
@@ -43,6 +48,10 @@ public class CalendarApplication extends Application
     @Override
     public void start(Stage primaryStage) throws IOException
     {
+        List<Event> temp = ReadXMLListEvent();
+        if (temp != null)
+            this.EventList.SetEventActivities(temp);
+
         Xstream.alias("Event", Event.class);
 
         Scene Scene = new Scene(fxmlLoader.load());
@@ -72,7 +81,7 @@ public class CalendarApplication extends Application
         timeline.play();
     }
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         launch();
     }
@@ -123,26 +132,35 @@ public class CalendarApplication extends Application
 
     public List<Event> ReadXMLListEvent() throws IOException
     {
-        try
+        Xstream.alias("Event", Event.class);
+        File XMLFile = new File(XMLFilePath);
+        List<Event> listEvents = new ArrayList<Event>();
+
+        if (XMLFile.exists())
         {
-            // Créez un objet FileReader pour lire le fichier XML
-            FileReader reader = new FileReader(FileName);
+            try
+            {
+                // Créez un objet FileReader pour lire le fichier XML
+                FileReader reader = new FileReader(FileName);
 
-            // Configuration personnalisée pour permettre la désérialisation de la classe Event car c'est elle qui est lu
-            Xstream.allowTypes(new Class[]{Event.class});
+                // Configuration personnalisée pour permettre la désérialisation de la classe Event car c'est elle qui est lu
+                Xstream.allowTypes(new Class[]{Event.class});
 
-            // Utilisez XStream pour désérialiser le XML en une liste d'event
-            List<Event> listEvents = (List<Event>) Xstream.fromXML(reader);
+                // Utilisez XStream pour désérialiser le XML en une liste d'event
+                listEvents = (List<Event>) Xstream.fromXML(reader);
 
-            // Fermez le FileReader pour libérer les ressources
-            reader.close();
+                // Fermez le FileReader pour libérer les ressources
+                reader.close();
 
+                return listEvents;
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
             return listEvents;
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-            return null;
-        }
+        return null;
     }
 }
