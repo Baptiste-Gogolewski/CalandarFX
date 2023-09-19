@@ -8,4 +8,40 @@
     <Month>09</Month>
     <Day>21</Day>
   </Event>
+  <Event>
+    <NameEvent>yo</NameEvent>
+    <Place></Place>
+    <Description></Description>
+    <Time></Time>
+    <Year>2023</Year>
+    <Month>09</Month>
+    <Day>18</Day>
+  </Event>
+  <Event>
+    <NameEvent>et</NameEvent>
+    <Place></Place>
+    <Description></Description>
+    <Time></Time>
+    <Year>2023</Year>
+    <Month>10</Month>
+    <Day>14</Day>
+  </Event>
+  <Event>
+    <NameEvent>Anniv de ma pute</NameEvent>
+    <Place></Place>
+    <Description></Description>
+    <Time></Time>
+    <Year>2023</Year>
+    <Month>10</Month>
+    <Day>27</Day>
+  </Event>
+  <Event>
+    <NameEvent>aled</NameEvent>
+    <Place></Place>
+    <Description></Description>
+    <Time></Time>
+    <Year>2023</Year>
+    <Month>11</Month>
+    <Day>12</Day>
+  </Event>
 </list>

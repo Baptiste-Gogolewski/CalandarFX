@@ -44,9 +44,11 @@ public class CalendarController
     private Label TimeLabel;
 
     Calendar Calandar;
+    Calendar SecondCalandar = java.util.Calendar.getInstance();
     Stage primaryStage;
     CalendarApplication CalendarApplication;
 
+    //String CompteurMonth;
 
     public void Init(Stage primaryStage, Calendar calendar, CalendarApplication calendarApplication)
     {
@@ -91,6 +93,10 @@ public class CalendarController
     @FXML
     private void Up()
     {
+        //CompteurMonth = GetStringMonth(Calandar.get(Calendar.MONTH));
+        //int tempMonth = Integer.parseInt(CompteurMonth);
+        //tempMonth -= 1;
+        //CompteurMonth = String.valueOf(tempMonth);
         Calandar.add(Calendar.MONTH, 1);
         MonthLabel.setText(Calandar.getDisplayName(Calendar.MONTH, Calendar.LONG_FORMAT, Locale.ENGLISH) + " " + Calandar.get(Calendar.YEAR));
         DrawCalandar();
@@ -145,10 +151,10 @@ public class CalendarController
     {
         InitCalandar();
 
-
         int dayOfMonth = 1;
-        int daysInMonth = Calandar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        int daysInMonth = Calandar.getActualMaximum(Calendar.DAY_OF_MONTH);     // Mémorise le nombre de jour dans un mois
         int CurrentDayInMonth = Calandar.get(Calendar.DAY_OF_MONTH);     // Mémorise la date actuelle par exemple le 27 juin ...
+        String CurrentMonth = GetStringMonth(SecondCalandar.get(Calendar.MONTH));
 
         // Decalage au 1er du mois
         Calandar.set(Calandar.DAY_OF_MONTH, 1);
@@ -158,11 +164,11 @@ public class CalendarController
 
         // Obtention du mois en chaine de caractères : 01 -> Janvier au lieu de 1
         String StringMonth = GetStringMonth(Calandar.get(Calendar.MONTH));
-        System.out.println(StringMonth);
+        //System.out.println(StringMonth);
 
         // Obtention de l'année
         String StringYear = String.valueOf(Calandar.get(Calendar.YEAR));
-        System.out.println(StringYear);
+        //System.out.println(StringYear);
 
         // Rebascule à la date mémoriser
         Calandar.set(Calendar.DAY_OF_MONTH, CurrentDayInMonth);
@@ -183,8 +189,13 @@ public class CalendarController
                 if (dayOfMonth <= daysInMonth)
                 {
                     // Le jour actuelle a modifier !
-                    if (dayOfMonth == Calandar.get(Calendar.DAY_OF_MONTH))
+                    if (dayOfMonth == CurrentDayInMonth && CurrentMonth.equals(StringMonth))
                     {
+                        System.out.println("DayOfMonth : " + dayOfMonth);
+                        System.out.println("CurrentDayInMonth : " + CurrentDayInMonth);
+                        System.out.println("StringMonth : " + StringMonth);
+                        System.out.println("CurrentMonth : " + CurrentMonth);
+
                         // Affiche le date du jour
                         Label Label = new Label(String.valueOf(dayOfMonth));
                         Label.setTextFill(Color.rgb(204, 204, 204));
@@ -249,51 +260,7 @@ public class CalendarController
                                 //Details.getChildren().add(TextContainer);
                             }
 
-                            /*
-                            for (Event event : TriEventList(events).GetEventActivities())
-                            {
-                                if (StringMonth.equals(event.GetMonth()) && StringYear.equals(event.GetYear()) && CorrectDay(String.valueOf(dayOfMonth)).equals(event.GetDay()))
-                                {
-                                    Label Text = new Label(event.GetNameEvent());
-                                    Text.setTextFill(Color.rgb(204, 204, 204));
 
-                                    TextContainer.getChildren().add(Text);
-
-                                    Details.getChildren().add(TextContainer);
-                                }
-                            }
-
-                             */
-
-
-
-                            /*
-                            for (Event event : TriEventList(events).GetEventActivities())
-                            {
-                                if (StringMonth.equals(event.GetMonth()) && StringYear.equals(event.GetYear()) && CorrectDay(String.valueOf(dayOfMonth)).equals(event.GetDay()))
-                                {
-                                    Label Text = new Label(events.GetNameEvent());
-                                    Text.setTextFill(Color.rgb(204, 204, 204));
-
-                                    TextContainer.getChildren().add(Text);
-
-                                    Details.getChildren().add(TextContainer);
-                                }
-                            }
-                            */
-
-
-                            /*
-                            // Obtention des donnes de l'event actuel
-                            String YearEvent = events.GetYear();
-                            String MonthEvent = events.GetMonth();
-                            String DayEvent = events.GetDay();
-
-
-                            // Je dois vérifier si les events sont le meme jours pour le mettre dans le meme TextContainer et si c'est le contraire alors je réinitialise le TextContainer
-                            // Je dois trier ma list event actuel et mettre les events dans une nouvelles liste d'event avec les memes event d'un meme jour
-
-                            }*/
                         }
                         Details.getChildren().add(TextContainer);
 
