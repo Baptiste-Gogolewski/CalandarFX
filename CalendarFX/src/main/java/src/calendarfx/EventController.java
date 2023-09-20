@@ -108,6 +108,16 @@ public class EventController
         }
         else if (InputValid())
         {
+            Event Event = new Event(EventNameTextField.getText(), PlaceTextField.getText(), YearTextField.getText(), MonthTextField.getText(), DayTextField.getText());
+
+            CalendarApplication.AddEvent(Event);
+
+            ShowListEvent();
+
+            secondaryStage.close();
+        }
+        else if (InputValid())
+        {
             Event Event = new Event(EventNameTextField.getText(), YearTextField.getText(), MonthTextField.getText(), DayTextField.getText());
 
             CalendarApplication.AddEvent(Event);
@@ -133,8 +143,10 @@ public class EventController
         else if (EventNameTextField.getText() != null && PlaceTextField.getText() != null && TimeTextField.getText() != null && YearTextField.getText() != null && MonthTextField.getText() != null && DayTextField.getText() != null)
         {
             return true;
-        }
-        else if (EventNameTextField.getText() != null && YearTextField.getText() != null && MonthTextField.getText() != null && DayTextField.getText() != null)
+        } else if (EventNameTextField.getText() != null && PlaceTextField.getText() != null && YearTextField.getText() != null && MonthTextField.getText() != null && DayTextField.getText() != null)
+        {
+
+        } else if (EventNameTextField.getText() != null && YearTextField.getText() != null && MonthTextField.getText() != null && DayTextField.getText() != null)
         {
             return true;
         }

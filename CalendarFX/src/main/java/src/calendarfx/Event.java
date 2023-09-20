@@ -17,6 +17,15 @@ public class Event
         this.Day = day;
     }
 
+    public Event(String nameEvent, String place, String year, String month, String day)
+    {
+        this.NameEvent = nameEvent;
+        this.Place = place;
+        this.Year = year;
+        this.Month = month;
+        this.Day = day;
+    }
+
     public Event(String nameEvent, String place, String time, String year, String month, String day)
     {
         this.NameEvent = nameEvent;
