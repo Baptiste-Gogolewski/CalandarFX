@@ -191,12 +191,7 @@ public class CalendarController
                     // Le jour actuelle a modifier !
                     if (dayOfMonth == CurrentDayInMonth && CurrentMonth.equals(StringMonth))
                     {
-                        System.out.println("DayOfMonth : " + dayOfMonth);
-                        System.out.println("CurrentDayInMonth : " + CurrentDayInMonth);
-                        System.out.println("StringMonth : " + StringMonth);
-                        System.out.println("CurrentMonth : " + CurrentMonth);
-
-                        // Affiche le date du jour
+                        // Affiche la date du jour
                         Label Label = new Label(String.valueOf(dayOfMonth));
                         Label.setTextFill(Color.rgb(204, 204, 204));
                         //Label.setStyle("-fx-border-color: #000000;");
@@ -205,6 +200,26 @@ public class CalendarController
                         Pane Details = new Pane();
                         Details.setPrefHeight(65);
                         Details.setStyle("-fx-background-color: #1C2833;");
+
+                        // Contient le texte des events à afficher
+                        VBox TextContainer = new VBox();
+
+                        // Affichage d'un evenement
+                        for (Event events : CalendarApplication.GetEventList().GetEventActivities())
+                        {
+                            if (events.GetYear().equals(StringYear) && events.GetMonth().equals(StringMonth) && events.GetDay().equals(CorrectDay(String.valueOf(dayOfMonth))))
+                            {
+                                Label Text = new Label(events.GetNameEvent());
+                                Text.setTextFill(Color.rgb(204, 204, 204));
+
+                                TextContainer.getChildren().add(Text);
+
+                                //Details.getChildren().add(TextContainer);
+                            }
+
+
+                        }
+                        Details.getChildren().add(TextContainer);
 
                         Details.setOnMouseClicked(mouseEvent -> {
                             try
@@ -234,7 +249,7 @@ public class CalendarController
                     }
                     else
                     {
-                        // Affiche le date du jour
+                        // Affiche la date du jour
                         Label Label = new Label(String.valueOf(dayOfMonth));
                         Label.setTextFill(Color.rgb(204, 204, 204));
                         //Label.setStyle("-fx-border-color: #000000;");
@@ -244,7 +259,7 @@ public class CalendarController
                         Details.setPrefHeight(65);
                         Details.setStyle("-fx-background-color: #1C2833;");
 
-                        // Contient le texte des event à afficher
+                        // Contient le texte des events à afficher
                         VBox TextContainer = new VBox();
 
                         // Affichage d'un evenement

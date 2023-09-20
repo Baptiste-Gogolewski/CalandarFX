@@ -121,7 +121,7 @@ public class EventController
     private void ShowListEvent()
     {
         for (Event events : CalendarApplication.GetEventList().GetEventActivities())
-            System.out.println(events.GetNameEvent() + " " + events.GetPlace());
+            System.out.println("NameEvent : " + events.GetNameEvent() + " , Date : " + events.GetYear() + "/" + events.GetMonth() + "/" + events.GetDay());
     }
 
     public boolean InputValid()
