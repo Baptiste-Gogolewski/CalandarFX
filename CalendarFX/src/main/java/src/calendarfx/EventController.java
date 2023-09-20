@@ -145,8 +145,9 @@ public class EventController
             return true;
         } else if (EventNameTextField.getText() != null && PlaceTextField.getText() != null && YearTextField.getText() != null && MonthTextField.getText() != null && DayTextField.getText() != null)
         {
-
-        } else if (EventNameTextField.getText() != null && YearTextField.getText() != null && MonthTextField.getText() != null && DayTextField.getText() != null)
+            return true;
+        }
+        else if (EventNameTextField.getText() != null && YearTextField.getText() != null && MonthTextField.getText() != null && DayTextField.getText() != null)
         {
             return true;
         }
