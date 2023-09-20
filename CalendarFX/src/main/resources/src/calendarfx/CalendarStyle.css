@@ -17,3 +17,16 @@
 {
     -fx-background-color: #1C2833;
 }
+
+.checkBox
+{
+    -fx-background-color: #212F3D;
+    -fx-border-color: #2471A3;
+    -fx-control-inner-background: #17202A;
+    -fx-selection-bar: #212F3D;
+}
+
+.checkBox .label
+{
+    -fx-text-fill: #cccccc;
+}

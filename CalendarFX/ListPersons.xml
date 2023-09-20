@@ -1,33 +1,6 @@
 <list>
   <Event>
-    <NameEvent>a</NameEvent>
-    <Place></Place>
-    <Description></Description>
-    <Time></Time>
-    <Year>2023</Year>
-    <Month>09</Month>
-    <Day>01</Day>
-  </Event>
-  <Event>
-    <NameEvent>d</NameEvent>
-    <Place></Place>
-    <Description></Description>
-    <Time></Time>
-    <Year>2023</Year>
-    <Month>09</Month>
-    <Day>04</Day>
-  </Event>
-  <Event>
-    <NameEvent>c</NameEvent>
-    <Place></Place>
-    <Description></Description>
-    <Time></Time>
-    <Year>2023</Year>
-    <Month>09</Month>
-    <Day>03</Day>
-  </Event>
-  <Event>
-    <NameEvent>t</NameEvent>
+    <NameEvent>I&apos;m tired</NameEvent>
     <Place></Place>
     <Description></Description>
     <Time></Time>
@@ -36,30 +9,12 @@
     <Day>20</Day>
   </Event>
   <Event>
-    <NameEvent>s</NameEvent>
-    <Place></Place>
-    <Description></Description>
-    <Time></Time>
-    <Year>2023</Year>
-    <Month>09</Month>
-    <Day>19</Day>
-  </Event>
-  <Event>
-    <NameEvent>u</NameEvent>
+    <NameEvent>Work</NameEvent>
     <Place></Place>
     <Description></Description>
     <Time></Time>
     <Year>2023</Year>
     <Month>09</Month>
     <Day>21</Day>
-  </Event>
-  <Event>
-    <NameEvent>e</NameEvent>
-    <Place></Place>
-    <Description></Description>
-    <Time></Time>
-    <Year>2023</Year>
-    <Month>09</Month>
-    <Day>30</Day>
   </Event>
 </list>

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -43,6 +44,12 @@ public class CalendarController
     @FXML
     private Label TimeLabel;
 
+    @FXML
+    private Label CheckBoxLabel;
+
+    @FXML
+    private ChoiceBox<String> ChoiceBox;
+
     Calendar Calandar;
     Calendar SecondCalandar = java.util.Calendar.getInstance();
     Stage primaryStage;
@@ -52,6 +59,9 @@ public class CalendarController
 
     public void Init(Stage primaryStage, Calendar calendar, CalendarApplication calendarApplication)
     {
+        ChoiceBox.getItems().addAll("Add", "Edit");     // Add a list of string
+        ChoiceBox.getSelectionModel().selectFirst();    // Select the first string when the app starts
+
         this.Calandar = calendar;
         this.primaryStage = primaryStage;
         this.CalendarApplication = calendarApplication;
@@ -224,7 +234,10 @@ public class CalendarController
                         Details.setOnMouseClicked(mouseEvent -> {
                             try
                             {
-                                OpenEventView();
+                                if (ChoiceBox.getValue().equals("Add"))
+                                    OpenAddEventView();
+                                else
+                                    OpenEditEventView();
                             }
                             catch (IOException e)
                             {
@@ -271,8 +284,6 @@ public class CalendarController
                                 Text.setTextFill(Color.rgb(204, 204, 204));
 
                                 TextContainer.getChildren().add(Text);
-
-                                //Details.getChildren().add(TextContainer);
                             }
 
 
@@ -283,7 +294,10 @@ public class CalendarController
                         Details.setOnMouseClicked(mouseEvent -> {
                             try
                             {
-                                OpenEventView();
+                                if (ChoiceBox.getValue().equals("Add"))
+                                    OpenAddEventView();
+                                else
+                                    OpenEditEventView();
                             }
                             catch (IOException e)
                             {
@@ -312,7 +326,7 @@ public class CalendarController
     }
 
 
-    public void OpenEventView() throws IOException
+    public void OpenAddEventView() throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(CalendarController.class.getResource("EventView.fxml"));
         AnchorPane AnchorPane = (AnchorPane) fxmlLoader.load();     // Cast
@@ -334,6 +348,11 @@ public class CalendarController
         eventController.SetCalandarApp(CalendarApplication);
 
         EventWindow.showAndWait();
+    }
+
+    public void OpenEditEventView() throws IOException
+    {
+        System.out.println("Chargement de la fenetre de choix de l'event");
     }
 
     // Tri la liste de base et retourne une liste avec les evenemnts d'un meme jour

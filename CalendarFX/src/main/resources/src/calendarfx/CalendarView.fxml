@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -104,6 +105,7 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <ChoiceBox fx:id="ChoiceBox" layoutX="1000.0" layoutY="127.0" prefHeight="26.0" prefWidth="62.0" styleClass="checkBox" stylesheets="@CalendarStyle.css" />
       
    </children>
 </AnchorPane>

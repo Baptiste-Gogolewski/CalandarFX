@@ -102,7 +102,7 @@ public class EventController
 
             CalendarApplication.AddEvent(Event);
 
-            ShowListEvent();
+            //ShowListEvent();
 
             secondaryStage.close();
         }
@@ -112,7 +112,7 @@ public class EventController
 
             CalendarApplication.AddEvent(Event);
 
-            ShowListEvent();
+            //ShowListEvent();
 
             secondaryStage.close();
         }
@@ -122,7 +122,7 @@ public class EventController
 
             CalendarApplication.AddEvent(Event);
 
-            ShowListEvent();
+            //ShowListEvent();
 
             secondaryStage.close();
         }
