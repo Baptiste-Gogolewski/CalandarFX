@@ -1,11 +1,19 @@
 package src.calendarfx;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.IOException;
 
 public class SelectEventController
 {
@@ -68,11 +76,11 @@ public class SelectEventController
     }
 
     @FXML
-    private void SelectEvent()
+    private void SelectEvent() throws IOException
     {
         if (EventNameTextField.getText() != null && YearTextField.getText() != null && MonthTextField.getText() != null && DayTextField.getText() != null)
         {
-            System.out.println("Name of event : " + EventNameTextField.getText());
+            OpenEditEventView();
             this.secondaryStage.close();
         }
         else
@@ -80,6 +88,29 @@ public class SelectEventController
             System.out.println("Aucune donnée");
             this.secondaryStage.close();
         }
+    }
+
+    public void OpenEditEventView() throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(CalendarController.class.getResource("EditView.fxml"));
+        AnchorPane AnchorPane = (AnchorPane) fxmlLoader.load();
+
+        Stage EditWindow = new Stage();
+        EditWindow.initModality(Modality.APPLICATION_MODAL);
+        EditWindow.initOwner(secondaryStage);
+
+        Scene Scene = new Scene(AnchorPane);
+
+        EditWindow.initStyle(StageStyle.TRANSPARENT);
+        Scene.setFill(Color.TRANSPARENT);
+
+        EditWindow.setScene(Scene);
+
+        ((EditController) fxmlLoader.getController()).Init(EditWindow);
+        EditController editController = fxmlLoader.getController();
+        editController.SetCalandarApp(CalendarApplication);
+
+        EditWindow.showAndWait();
     }
 
     @FXML
