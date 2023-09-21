@@ -56,8 +56,6 @@ public class EventController
 
     public void Init(Stage secondaryStage)
     {
-        //EventList = new EventList();
-
         this.secondaryStage = secondaryStage;
 
         // Move the window

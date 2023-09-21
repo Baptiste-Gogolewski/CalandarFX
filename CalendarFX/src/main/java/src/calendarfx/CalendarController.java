@@ -352,7 +352,25 @@ public class CalendarController
 
     public void OpenEditEventView() throws IOException
     {
-        System.out.println("Chargement de la fenetre de choix de l'event");
+        FXMLLoader fxmlLoader = new FXMLLoader(CalendarController.class.getResource("SelectEvent.fxml"));
+        AnchorPane AnchorPane = (AnchorPane) fxmlLoader.load();
+
+        Stage SelectWindow = new Stage();
+        SelectWindow.initModality(Modality.APPLICATION_MODAL);
+        SelectWindow.initOwner(primaryStage);
+
+        Scene Scene = new Scene(AnchorPane);
+
+        SelectWindow.initStyle(StageStyle.TRANSPARENT);
+        Scene.setFill(Color.TRANSPARENT);
+
+        SelectWindow.setScene(Scene);
+
+        ((SelectEventController) fxmlLoader.getController()).Init(SelectWindow);
+        SelectEventController selectEventController = fxmlLoader.getController();
+        selectEventController.SetCalandarApp(CalendarApplication);
+
+        SelectWindow.showAndWait();
     }
 
     // Tri la liste de base et retourne une liste avec les evenemnts d'un meme jour
