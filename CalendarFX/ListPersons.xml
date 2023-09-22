@@ -1,29 +1,20 @@
 <list>
   <Event>
-    <NameEvent>I&apos;m tired</NameEvent>
-    <Place></Place>
+    <NameEvent>Birthday</NameEvent>
+    <Place>Amiens</Place>
     <Description></Description>
     <Time></Time>
     <Year>2023</Year>
     <Month>09</Month>
-    <Day>20</Day>
+    <Day>27</Day>
   </Event>
   <Event>
-    <NameEvent>Work</NameEvent>
-    <Place></Place>
+    <NameEvent>Class</NameEvent>
+    <Place>Amiens</Place>
     <Description></Description>
-    <Time></Time>
+    <Time>08:00</Time>
     <Year>2023</Year>
     <Month>09</Month>
-    <Day>21</Day>
-  </Event>
-  <Event>
-    <NameEvent>cc</NameEvent>
-    <Place></Place>
-    <Description></Description>
-    <Time></Time>
-    <Year>2023</Year>
-    <Month>09</Month>
-    <Day>09</Day>
+    <Day>24</Day>
   </Event>
 </list>

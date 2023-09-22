@@ -103,10 +103,6 @@ public class CalendarController
     @FXML
     private void Up()
     {
-        //CompteurMonth = GetStringMonth(Calandar.get(Calendar.MONTH));
-        //int tempMonth = Integer.parseInt(CompteurMonth);
-        //tempMonth -= 1;
-        //CompteurMonth = String.valueOf(tempMonth);
         Calandar.add(Calendar.MONTH, 1);
         MonthLabel.setText(Calandar.getDisplayName(Calendar.MONTH, Calendar.LONG_FORMAT, Locale.ENGLISH) + " " + Calandar.get(Calendar.YEAR));
         DrawCalandar();

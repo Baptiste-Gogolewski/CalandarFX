@@ -50,6 +50,10 @@ public class SelectEventController
 
     private Stage secondaryStage;
 
+    public String Place;
+    public String Time;
+    public String Description;
+
     public void Init(Stage secondaryStage)
     {
         this.secondaryStage = secondaryStage;
@@ -75,12 +79,26 @@ public class SelectEventController
         });
     }
 
+    public void SelectGoodEvent(String eventName, String year, String month, String day)
+    {
+        for (Event event : CalendarApplication.GetEventList().GetEventActivities())
+        {
+            if (event.GetNameEvent().equals(eventName) && event.GetYear().equals(year) && event.GetMonth().equals(month) && event.GetDay().equals(day))
+            {
+                this.Place = event.GetPlace();
+                this.Time = event.GetTime();
+                this.Description = event.GetDescription();
+            }
+        }
+    }
+
     @FXML
     private void SelectEvent() throws IOException
     {
         if (EventNameTextField.getText() != null && YearTextField.getText() != null && MonthTextField.getText() != null && DayTextField.getText() != null)
         {
-            OpenEditEventView();
+            SelectGoodEvent(EventNameTextField.getText(), YearTextField.getText(), MonthTextField.getText(), DayTextField.getText());
+            OpenEditEventView(EventNameTextField.getText(), YearTextField.getText(), MonthTextField.getText(), DayTextField.getText(), this.Place, this.Time, this.Description);
             this.secondaryStage.close();
         }
         else
@@ -90,7 +108,7 @@ public class SelectEventController
         }
     }
 
-    public void OpenEditEventView() throws IOException
+    public void OpenEditEventView(String eventNameTextField, String yearTextField, String monthTextField, String dayTextField, String place, String time, String description) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(CalendarController.class.getResource("EditView.fxml"));
         AnchorPane AnchorPane = (AnchorPane) fxmlLoader.load();
@@ -109,6 +127,14 @@ public class SelectEventController
         ((EditController) fxmlLoader.getController()).Init(EditWindow);
         EditController editController = fxmlLoader.getController();
         editController.SetCalandarApp(CalendarApplication);
+
+        editController.SetEventNameTextField(eventNameTextField);
+        editController.SetYearTextField(yearTextField);
+        editController.SetMonthTextField(monthTextField);
+        editController.SetDayTextField(dayTextField);
+        editController.SetPlaceTextField(place);
+        editController.SetTimeTextField(time);
+        editController.SetDescriptionArea(description);
 
         EditWindow.showAndWait();
     }

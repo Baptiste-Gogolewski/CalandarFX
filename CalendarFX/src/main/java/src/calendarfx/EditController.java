@@ -50,6 +50,8 @@ public class EditController
 
     private Stage secondaryStage;
 
+    public CalendarApplication CalendarApplication;
+
     public void Init(Stage secondaryStage)
     {
         this.secondaryStage = secondaryStage;
@@ -75,9 +77,50 @@ public class EditController
         });
     }
 
-    public void SetCalandarApp(CalendarApplication calendarApplication)
+    @FXML
+    public void EditEvent()
     {
 
+    }
+
+    public void SetEventNameTextField(String eventNameTextField)
+    {
+        this.EventNameTextField.setText(eventNameTextField);
+    }
+
+    public void SetYearTextField(String yearTextField)
+    {
+        this.YearTextField.setText(yearTextField);
+    }
+
+    public void SetMonthTextField(String monthTextField)
+    {
+        this.MonthTextField.setText(monthTextField);
+    }
+
+    public void SetDayTextField(String dayTextField)
+    {
+        this.DayTextField.setText(dayTextField);
+    }
+
+    public void SetPlaceTextField(String placeTextField)
+    {
+        this.PlaceTextField.setText(placeTextField);
+    }
+
+    public void SetTimeTextField(String timeTextField)
+    {
+        this.TimeTextField.setText(timeTextField);
+    }
+
+    public void SetDescriptionArea(String descriptionArea)
+    {
+        this.DescriptionArea.setText(descriptionArea);
+    }
+
+    public void SetCalandarApp(CalendarApplication calendarApplication)
+    {
+        this.CalendarApplication = calendarApplication;
     }
 
     @FXML
