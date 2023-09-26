@@ -26,4 +26,13 @@
     <Month>09</Month>
     <Day>25</Day>
   </Event>
+  <Event>
+    <NameEvent>Test</NameEvent>
+    <Place>Unilasalle Amiens</Place>
+    <Description></Description>
+    <Time>08:00</Time>
+    <Year>2023</Year>
+    <Month>09</Month>
+    <Day>14</Day>
+  </Event>
 </list>
