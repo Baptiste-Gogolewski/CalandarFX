@@ -39,7 +39,7 @@
       </Label>
       <TextField fx:id="EventNameTextField" layoutX="197.0" layoutY="43.0" prefHeight="25.0" prefWidth="299.0" promptText="Birthday" />
       <TextArea fx:id="DescriptionArea" layoutX="10.0" layoutY="254.0" prefHeight="105.0" prefWidth="580.0" promptText="A description" />
-      <Button fx:id="EditButton" layoutX="552.0" layoutY="367.0" mnemonicParsing="false" onMousePressed="#EditPressedButton" onMouseReleased="#EditUnPressedButton" styleClass="addButton" stylesheets="@CalendarStyle.css" text="Edit" textFill="#cccccc" />
+      <Button fx:id="EditButton" layoutX="552.0" layoutY="367.0" mnemonicParsing="false" onAction="#EditEvent" onMousePressed="#EditPressedButton" onMouseReleased="#EditUnPressedButton" styleClass="addButton" stylesheets="@CalendarStyle.css" text="Edit" textFill="#cccccc" />
       <Label layoutX="10.0" layoutY="213.0" text="Description :" textFill="#cccccc">
          <font>
             <Font size="20.0" />

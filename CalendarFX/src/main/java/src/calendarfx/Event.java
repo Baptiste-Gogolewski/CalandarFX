@@ -83,4 +83,24 @@ public class Event
     {
         return this.Day;
     }
+
+    public void SetNameEvent(String nameEvent)
+    {
+        this.NameEvent = nameEvent;
+    }
+
+    public void SetPlace(String place)
+    {
+        this.Place = place;
+    }
+
+    public void SetDescription(String description)
+    {
+        this.Description = description;
+    }
+
+    public void SetTime(String time)
+    {
+        this.Time = time;
+    }
 }

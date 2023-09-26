@@ -17,4 +17,13 @@
     <Month>09</Month>
     <Day>24</Day>
   </Event>
+  <Event>
+    <NameEvent>Work</NameEvent>
+    <Place></Place>
+    <Description>I&apos;m working at 18pm</Description>
+    <Time>18:00</Time>
+    <Year>2023</Year>
+    <Month>09</Month>
+    <Day>25</Day>
+  </Event>
 </list>

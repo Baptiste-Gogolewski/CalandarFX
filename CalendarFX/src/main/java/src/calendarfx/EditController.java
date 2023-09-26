@@ -80,7 +80,18 @@ public class EditController
     @FXML
     public void EditEvent()
     {
+        for (Event event : CalendarApplication.GetEventList().GetEventActivities())
+        {
+            if (event.GetNameEvent().equals(EventNameTextField.getText()) && event.GetYear().equals(YearTextField.getText()) && event.GetMonth().equals(MonthTextField.getText()) && event.GetDay().equals(DayTextField.getText()))
+            {
+                event.SetNameEvent(EventNameTextField.getText());
+                event.SetPlace(PlaceTextField.getText());
+                event.SetDescription(DescriptionArea.getText());
+                event.SetTime(TimeTextField.getText());
+            }
+        }
 
+        secondaryStage.close();
     }
 
     public void SetEventNameTextField(String eventNameTextField)
